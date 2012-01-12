@@ -86,5 +86,5 @@ public abstract class UndirectedGraphTest {
 		return list;
 	}
 	
-	abstract UndirectedGraph initGraph(int size);
+	protected abstract UndirectedGraph initGraph(int size);
 }

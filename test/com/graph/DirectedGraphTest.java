@@ -85,5 +85,5 @@ public abstract class DirectedGraphTest {
 		return list;
 	}
 	
-	abstract DirectedGraph initGraph(int size);
+	protected abstract DirectedGraph initGraph(int size);
 }

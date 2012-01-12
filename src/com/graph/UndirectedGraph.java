@@ -27,6 +27,7 @@ public abstract class UndirectedGraph implements Graph{
 	/**
 	 * Returns the list of connected vertices for the given vertex
 	 */
+	@Override
 	public final List<Integer> getConnectedList(int vertex) {
 		return graph.getConnectedList(vertex);
 	}
@@ -34,10 +35,12 @@ public abstract class UndirectedGraph implements Graph{
 	/**
 	 * Gets the distance between two vertices. If the vertices are not connected, return null.
 	 */
+	@Override
 	public final Integer getDistance(int vertex1, int vertex2) {
 		return graph.getDistance(vertex1, vertex2);
 	}
 
+	@Override
 	public final boolean isConnected(int vertex1, int vertex2) {
 		return graph.isConnected(vertex1, vertex2);
 	}
@@ -46,6 +49,7 @@ public abstract class UndirectedGraph implements Graph{
 	 * 
 	 * @return the size of this graph
 	 */
+	@Override
 	public final int size() {
 		return graph.size();
 	}

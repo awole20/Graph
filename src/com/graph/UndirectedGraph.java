@@ -12,14 +12,14 @@ public abstract class UndirectedGraph implements Graph{
 	/**
 	 * Connects two vertices together with a unit distance of one
 	 */
-	public void connect(int vertex1, int vertex2) {
+	public final void connect(int vertex1, int vertex2) {
 		connect(vertex1, vertex2, 1);
 	}
 
 	/**
 	 * Connects two vertices together with the given distance
 	 */
-	public void connect(int vertex1, int vertex2, int distance) {
+	public final void connect(int vertex1, int vertex2, int distance) {
 		graph.connect(vertex1, vertex2, distance);
 		graph.connect(vertex2, vertex1, distance);
 	}
@@ -27,18 +27,18 @@ public abstract class UndirectedGraph implements Graph{
 	/**
 	 * Returns the list of connected vertices for the given vertex
 	 */
-	public List<Integer> getConnectedList(int vertex) {
+	public final List<Integer> getConnectedList(int vertex) {
 		return graph.getConnectedList(vertex);
 	}
 
 	/**
 	 * Gets the distance between two vertices. If the vertices are not connected, return null.
 	 */
-	public Integer getDistance(int vertex1, int vertex2) {
+	public final Integer getDistance(int vertex1, int vertex2) {
 		return graph.getDistance(vertex1, vertex2);
 	}
 
-	public boolean isConnected(int vertex1, int vertex2) {
+	public final boolean isConnected(int vertex1, int vertex2) {
 		return graph.isConnected(vertex1, vertex2);
 	}
 
@@ -46,7 +46,7 @@ public abstract class UndirectedGraph implements Graph{
 	 * 
 	 * @return the size of this graph
 	 */
-	public int size() {
+	public final int size() {
 		return graph.size();
 	}
 	

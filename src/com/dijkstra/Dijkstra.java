@@ -64,8 +64,6 @@ public class Dijkstra {
 			return Dijkstra.INFINITY;
 		}
 		
-		System.out.println("temp is: " + temp.node + " with distance: " + temp.distance);
-		
 		temp.visited = true;
 		List<Integer> listOfConnected = this.graph.getConnectedList(temp.node);
 		for(int i = 0; i < listOfConnected.size(); i++){

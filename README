@@ -1,3 +1,6 @@
-Simple project to test abstractions, hierarchies.
+Simple project to showcase abstractions, and class hierarchies.
 
-Generic graphs, and graphing algorithms
+API for generic graphs, and graphing algorithms:
+-adjacency list and adjacency matrix implementations
+-directed and undirected graphs
+-dijkstra's algorithm that is graph implementation agnostic.

@@ -11,7 +11,7 @@ import com.graph.Graph;
 public class Dijkstra {
 
 	private class DiscoveredNode implements Comparable<DiscoveredNode> {
-		public int node;
+		public final int node;
 		public int distance;
 		public boolean visited = false;
 		DiscoveredNode(int node, int distance){
@@ -21,6 +21,14 @@ public class Dijkstra {
 		@Override
 		public int compareTo(DiscoveredNode o) {
 			return this.distance - o.distance;
+		}
+	}
+	
+	private class BaseCaseException extends Exception{
+		private static final long serialVersionUID = -7996044249799494758L;
+		public final int finalDistance;
+		BaseCaseException(int finalDistance){
+			this.finalDistance = finalDistance;
 		}
 	}
 	
@@ -45,23 +53,23 @@ public class Dijkstra {
 	
 	private int findMinimumPath(int source, int destination, Map<Integer, DiscoveredNode> visitedMap){
 		
-		//base case 1: we reached desination
-		if(source == destination){
-			return visitedMap.get(destination).distance;
+		DiscoveredNode temp = null;
+		try{
+			checkIfDestinationIsReached(source, destination, visitedMap);
+			temp = getNextNodeToVisit(visitedMap);
+		} catch(BaseCaseException answer){
+			return answer.finalDistance;
 		}
-		
-		DiscoveredNode temp = getNextNodeToVisit(visitedMap);
-		
-		//base case 2: we have run out of nodes to visit, and it is impossible to get to the destination
-		if(temp == null){
-			return Dijkstra.INFINITY;
-		}
-		
 		markVisited(temp);
-		
 		markDistanceOfConnectedNodesFromVisited(visitedMap, temp);
-		
 		return findMinimumPath(temp.node, destination, visitedMap);
+	}
+
+	private void checkIfDestinationIsReached(int source, int destination,
+			Map<Integer, DiscoveredNode> visitedMap) throws BaseCaseException {
+		if(source == destination){
+			throw new BaseCaseException(visitedMap.get(destination).distance);
+		}
 	}
 
 	private void markDistanceOfConnectedNodesFromVisited(Map<Integer, DiscoveredNode> visitedMap, DiscoveredNode temp) {
@@ -72,7 +80,7 @@ public class Dijkstra {
 			if(visitedMap.get(new Integer(listOfConnected.get(i))).visited){
 				continue;
 			}
-			//otherwise git minimum between the new path and old path
+			//otherwise get the minimum between the new path and old path
 			int newDistance = Math.min(visitedMap.get(listOfConnected.get(i)).distance, temp.distance + this.graph.getDistance(temp.node, listOfConnected.get(i)));
 			visitedMap.get(listOfConnected.get(i)).distance = newDistance;
 			
@@ -83,7 +91,7 @@ public class Dijkstra {
 		temp.visited = true;
 	}
 
-	private DiscoveredNode getNextNodeToVisit(Map<Integer, DiscoveredNode> visitedMap) {
+	private DiscoveredNode getNextNodeToVisit(Map<Integer, DiscoveredNode> visitedMap) throws BaseCaseException {
 		List<DiscoveredNode> sortedList = new ArrayList<DiscoveredNode>(visitedMap.values());
 		Collections.sort(sortedList);
 		
@@ -93,6 +101,9 @@ public class Dijkstra {
 			if(!temp.visited){
 				break;
 			}
+		}
+		if(temp == null){
+			throw new BaseCaseException(Dijkstra.INFINITY);
 		}
 		return temp;
 	}

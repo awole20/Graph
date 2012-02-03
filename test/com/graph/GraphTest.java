@@ -8,7 +8,7 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses({AdjacencyListDirectedGraphTest.class,
 	AdjacencyListUndirectedGraphTest.class,
 	AdjacencyMatrixDirectedGraphTest.class,
-	AdjacencyMatrixUndirectedGraphTest.class,
+	AdjacencyMatrixUndirectedGraphTest.class
 	})
 public class GraphTest {
 

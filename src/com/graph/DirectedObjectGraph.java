@@ -21,7 +21,8 @@ public class DirectedObjectGraph<k> implements DirectedGraph<k>{
 	@Override
 	public void connect(k vertex1, k vertex2, int distance) {
 		int vertex1pos = this.objectList.indexOf(vertex1);
-		int vertex2pos = this.objectList.indexOf(vertex1);
+		int vertex2pos = this.objectList.indexOf(vertex2);
+		
 		try{
 			this.graph.connect(vertex1pos, vertex2pos, distance);
 		} catch(IndexOutOfBoundsException e){
@@ -32,7 +33,7 @@ public class DirectedObjectGraph<k> implements DirectedGraph<k>{
 	@Override
 	public boolean isConnected(k vertex1, k vertex2){
 		int vertex1pos = this.objectList.indexOf(vertex1);
-		int vertex2pos = this.objectList.indexOf(vertex1);
+		int vertex2pos = this.objectList.indexOf(vertex2);
 		try{
 			return this.graph.isConnected(vertex1pos, vertex2pos);
 		} catch(IndexOutOfBoundsException e){
@@ -54,7 +55,7 @@ public class DirectedObjectGraph<k> implements DirectedGraph<k>{
 	@Override
 	public Integer getDistance(k vertex1, k vertex2) {
 		int vertex1pos = this.objectList.indexOf(vertex1);
-		int vertex2pos = this.objectList.indexOf(vertex1);
+		int vertex2pos = this.objectList.indexOf(vertex2);
 		
 		return this.graph.getDistance(vertex1pos, vertex2pos);
 	}

@@ -3,15 +3,10 @@ package com.graph;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DirectedObjectGraph<k> implements DirectedGraph<k>{
+public abstract class DirectedObjectGraph<k> implements DirectedGraph<k>{
 
-	private DirectedGraph<Integer> graph;
-	private List<k> objectList = new ArrayList<k>();
-	
-	public DirectedObjectGraph(List<k> listObjects){
-		this.objectList = listObjects;
-		this.graph = new AdjacencyListDirectedGraph(this.objectList.size());
-	}
+	protected DirectedGraph<Integer> graph;
+	protected List<k> objectList = new ArrayList<k>();
 	
 	@Override
 	public void connect(k vertex1, k vertex2) {

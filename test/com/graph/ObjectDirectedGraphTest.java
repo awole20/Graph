@@ -18,7 +18,7 @@ public class ObjectDirectedGraphTest {
 		namedNodes.add("one");
 		namedNodes.add("two");
 		namedNodes.add("Three");
-		 this.graph = new DirectedObjectGraph<String>(namedNodes);
+		 this.graph = new AdjacencyListDirectedObjectGraph<String>(namedNodes);
 	}
 	
 	@Test

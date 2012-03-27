@@ -17,14 +17,14 @@ public interface UndirectedGraph<k> extends Graph<k> {
 	/**
 	 * Returns the list of connected vertices for the given vertex
 	 */
-	public List<Integer> getConnectedList(Integer vertex);
+	public List<k> getConnectedList(k vertex);
 
 	/**
 	 * Gets the distance between two vertices. If the vertices are not connected, return null.
 	 */
-	public Integer getDistance(Integer vertex1, Integer vertex2);
+	public Integer getDistance(k vertex1, k vertex2);
 
-	public boolean isConnected(Integer vertex1, Integer vertex2);
+	public boolean isConnected(k vertex1, k vertex2);
 
 	/**
 	 * 

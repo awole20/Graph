@@ -9,7 +9,8 @@ import org.junit.runners.Suite;
 	AdjacencyListUndirectedGraphTest.class,
 	AdjacencyMatrixDirectedGraphTest.class,
 	AdjacencyMatrixUndirectedGraphTest.class,
-	ObjectDirectedGraphTest.class
+	AdjacencyListObjectDirectedGraphTest.class,
+	AdjacencyMatrixObjectDirectedGraphTest.class
 	})
 public class GraphTest {
 

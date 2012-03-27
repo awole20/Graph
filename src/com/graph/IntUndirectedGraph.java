@@ -7,7 +7,7 @@ import java.util.List;
  */
 public abstract class IntUndirectedGraph implements UndirectedGraph<Integer>{
 
-	protected IntDirectedGraph graph;
+	protected DirectedGraph<Integer> graph;
 
 	@Override
 	public final void connect(Integer vertex1, Integer vertex2) {

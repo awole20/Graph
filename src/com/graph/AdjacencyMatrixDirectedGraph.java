@@ -3,7 +3,7 @@ package com.graph;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdjacencyMatrixDirectedGraph implements IntDirectedGraph {
+public class AdjacencyMatrixDirectedGraph implements DirectedGraph<Integer> {
 	private int[][] adjacencyMatrix;
 
 	private int size;

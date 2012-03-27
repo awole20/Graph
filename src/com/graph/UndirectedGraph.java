@@ -1,7 +1,5 @@
 package com.graph;
 
-import java.util.List;
-
 public interface UndirectedGraph<k> extends Graph<k> {
 
 	/**
@@ -13,23 +11,5 @@ public interface UndirectedGraph<k> extends Graph<k> {
 	 * Connects two vertices together with the given distance
 	 */
 	public void connect(k vertex1, k vertex2, int distance);
-
-	/**
-	 * Returns the list of connected vertices for the given vertex
-	 */
-	public List<k> getConnectedList(k vertex);
-
-	/**
-	 * Gets the distance between two vertices. If the vertices are not connected, return null.
-	 */
-	public Integer getDistance(k vertex1, k vertex2);
-
-	public boolean isConnected(k vertex1, k vertex2);
-
-	/**
-	 * 
-	 * @return the size of this graph
-	 */
-	public int size();
 
 }

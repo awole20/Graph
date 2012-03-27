@@ -3,7 +3,7 @@ package com.graph;
 public class AdjacencyListDirectedGraphTest extends DirectedGraphTest{
 
 	@Override
-	protected IntDirectedGraph initGraph(int size) {
+	protected DirectedGraph<Integer> initGraph(int size) {
 		return new AdjacencyListDirectedGraph(size);
 	}
 

@@ -1,6 +1,6 @@
 package com.bfs;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -10,7 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.graph.AdjacencyListUndirectedGraph;
-import com.graph.IntUndirectedGraph;
+import com.graph.UndirectedGraph;
 
 public class TestBfs {
 
@@ -18,7 +18,7 @@ public class TestBfs {
 	
 	@Before
 	public void setUp() {
-		IntUndirectedGraph undirectedGraph = new AdjacencyListUndirectedGraph(10);
+		UndirectedGraph<Integer> undirectedGraph = new AdjacencyListUndirectedGraph(10);
 		undirectedGraph.connect(0, 1, 1);
 		undirectedGraph.connect(0, 2, 2);
 		undirectedGraph.connect(0, 3, 3);

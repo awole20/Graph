@@ -26,7 +26,7 @@ public abstract class DirectedGraphTest {
 	
 	@Test(expected=IndexOutOfBoundsException.class)
 	public void testConnectingVertexMaxBounds(){
-		DirectedGraph graph = initGraph(1);
+		DirectedGraph<Integer> graph = initGraph(1);
 		graph.connect(0,1);
 		fail();
 	}

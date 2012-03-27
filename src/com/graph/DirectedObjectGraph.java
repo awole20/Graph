@@ -3,7 +3,7 @@ package com.graph;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DirectedObjectGraph<k> implements DirectedGraph<k>, Graph<k>{
+public class DirectedObjectGraph<k> implements DirectedGraph<k>{
 
 	private DirectedGraph<Integer> graph;
 	private List<k> objectList = new ArrayList<k>();

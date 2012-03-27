@@ -6,17 +6,17 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import com.graph.IntGraph;
+import com.graph.Graph;
 
 public class Bfs {
 
-	private IntGraph graph;
+	private Graph<Integer> graph;
 	
-	public Bfs(IntGraph graph) {
+	public Bfs(Graph<Integer> graph) {
 		this.graph = graph;
 	}
 	
-	public List<HashSet<Integer>> execute(Integer start) {
+	public List<HashSet<Integer>> execute(int start) {
 		
 		if(start >= this.graph.size()){
 			List<HashSet<Integer>> blank = new ArrayList<HashSet<Integer>>();

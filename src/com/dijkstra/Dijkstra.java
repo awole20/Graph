@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.graph.Graph;
+import com.graph.IntGraph;
 
 public class Dijkstra {
 
@@ -34,9 +34,9 @@ public class Dijkstra {
 	
 	public static final int INFINITY = Integer.MAX_VALUE;
 	
-	private Graph graph;
+	private IntGraph graph;
 	
-	public Dijkstra(Graph graph){
+	public Dijkstra(IntGraph graph){
 		this.graph = graph;
 	}
 	

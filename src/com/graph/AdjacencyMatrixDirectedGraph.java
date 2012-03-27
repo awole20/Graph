@@ -3,7 +3,7 @@ package com.graph;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdjacencyMatrixDirectedGraph implements DirectedGraph {
+public class AdjacencyMatrixDirectedGraph implements IntDirectedGraph {
 	private int[][] adjacencyMatrix;
 
 	private int size;
@@ -14,19 +14,19 @@ public class AdjacencyMatrixDirectedGraph implements DirectedGraph {
 	}
 
 	@Override
-	public void connect(int vertex1, int vertex2) {
+	public void connect(Integer vertex1, Integer vertex2) {
 		connect(vertex1, vertex2, 1);
 	}
 
 	@Override
-	public void connect(int vertex1, int vertex2, int distance) {
+	public void connect(Integer vertex1, Integer vertex2, int distance) {
 		checkIndexOutOfBounds(vertex1);
 		checkIndexOutOfBounds(vertex2);
 		adjacencyMatrix[vertex1][vertex2] = distance;
 	}
 	
 	@Override
-	public List<Integer> getConnectedList(int vertex) {
+	public List<Integer> getConnectedList(Integer vertex) {
 		checkIndexOutOfBounds(vertex);
 		List<Integer> connectedList = new ArrayList<Integer>();
 		for(int i = 0; i < this.size; i++){
@@ -38,7 +38,7 @@ public class AdjacencyMatrixDirectedGraph implements DirectedGraph {
 	}
 
 	@Override
-	public Integer getDistance(int vertex1, int vertex2) {
+	public Integer getDistance(Integer vertex1, Integer vertex2) {
 		if(isConnected(vertex1, vertex2)){
 			return adjacencyMatrix[vertex1][vertex2];
 		}
@@ -46,7 +46,7 @@ public class AdjacencyMatrixDirectedGraph implements DirectedGraph {
 	}
 	
 	@Override
-	public boolean isConnected(int vertex1, int vertex2) {
+	public boolean isConnected(Integer vertex1, Integer vertex2) {
 		checkIndexOutOfBounds(vertex1);
 		checkIndexOutOfBounds(vertex2);
 		return adjacencyMatrix[vertex1][vertex2] > 0;
@@ -58,7 +58,7 @@ public class AdjacencyMatrixDirectedGraph implements DirectedGraph {
 	}
 
 	private void checkIndexOutOfBounds(int index) {
-		if(index >= this.size){
+		if(index >= this.size || index < 0){
 			throw new IndexOutOfBoundsException("attempted to access node " + index + " but size of graph is " + this.size);
 		}
 	}

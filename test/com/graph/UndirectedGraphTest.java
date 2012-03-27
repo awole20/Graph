@@ -13,13 +13,13 @@ public abstract class UndirectedGraphTest {
 	
 	@Test
 	public void testEmptyGraphHasNoElements(){
-		UndirectedGraph graph = initGraph(0);
+		IntUndirectedGraph graph = initGraph(0);
 		assertEquals(0, graph.size());
 	}
 	
 	@Test
 	public void testNonemptyGraphHasElements(){
-		UndirectedGraph graph = initGraph(1);
+		IntUndirectedGraph graph = initGraph(1);
 		assertEquals(1, graph.size());
 		graph = initGraph(2);
 		assertEquals(2, graph.size());
@@ -34,20 +34,20 @@ public abstract class UndirectedGraphTest {
 	
 	@Test(expected=IndexOutOfBoundsException.class)
 	public void testConnectionCheckVertexMaxBounds(){
-		UndirectedGraph graph = initGraph(1);
+		IntUndirectedGraph graph = initGraph(1);
 		graph.isConnected(0,1);
 		fail();
 	}
 	
 	@Test
 	public void testNonConnectedVertices(){
-		UndirectedGraph graph = initGraph(2);
+		IntUndirectedGraph graph = initGraph(2);
 		assertEquals(false, graph.isConnected(0,1));
 	}
 	
 	@Test
 	public void testConnectingTwoVertices(){
-		UndirectedGraph graph = initGraph(2);
+		IntUndirectedGraph graph = initGraph(2);
 		graph.connect(0,1);
 		assertEquals(true, graph.isConnected(0,1));
 		assertEquals(true, graph.isConnected(1,0));
@@ -55,7 +55,7 @@ public abstract class UndirectedGraphTest {
 	
 	@Test
 	public void testGetConnectedVertexList(){
-		UndirectedGraph graph = initGraph(4);
+		IntUndirectedGraph graph = initGraph(4);
 		graph.connect(0,1);
 		graph.connect(0,2);
 		graph.connect(0,3);
@@ -67,13 +67,13 @@ public abstract class UndirectedGraphTest {
 	
 	@Test
 	public void testGetDistanceBetweenUnconnectedComponents(){
-		UndirectedGraph graph = initGraph(2);
+		IntUndirectedGraph graph = initGraph(2);
 		assertEquals(null, graph.getDistance(0,1));
 	}
 	
 	@Test
 	public void testGetDistanceBetweenComponents(){
-		UndirectedGraph graph = initGraph(2);
+		IntUndirectedGraph graph = initGraph(2);
 		graph.connect(0,1, 5);
 		assertEquals(new Integer(5), graph.getDistance(0,1));
 	}
@@ -86,5 +86,5 @@ public abstract class UndirectedGraphTest {
 		return list;
 	}
 	
-	protected abstract UndirectedGraph initGraph(int size);
+	protected abstract IntUndirectedGraph initGraph(int size);
 }

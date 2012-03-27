@@ -6,13 +6,13 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import com.graph.Graph;
+import com.graph.IntGraph;
 
 public class Bfs {
 
-	private Graph graph;
+	private IntGraph graph;
 	
-	public Bfs(Graph graph) {
+	public Bfs(IntGraph graph) {
 		this.graph = graph;
 	}
 	

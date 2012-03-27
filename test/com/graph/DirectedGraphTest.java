@@ -12,13 +12,13 @@ import org.junit.Test;
 public abstract class DirectedGraphTest {
 	@Test
 	public void testEmptyGraphHasNoElements(){
-		DirectedGraph graph = initGraph(0);
+		IntDirectedGraph graph = initGraph(0);
 		assertEquals(0, graph.size());
 	}
 	
 	@Test
 	public void testNonemptyGraphHasElements(){
-		DirectedGraph graph = initGraph(1);
+		IntDirectedGraph graph = initGraph(1);
 		assertEquals(1, graph.size());
 		graph = initGraph(2);
 		assertEquals(2, graph.size());
@@ -33,20 +33,20 @@ public abstract class DirectedGraphTest {
 	
 	@Test(expected=IndexOutOfBoundsException.class)
 	public void testConnectionCheckVertexMaxBounds(){
-		DirectedGraph graph = initGraph(1);
+		IntDirectedGraph graph = initGraph(1);
 		graph.isConnected(0,1);
 		fail();
 	}
 	
 	@Test
 	public void testNonConnectedVertices(){
-		DirectedGraph graph = initGraph(2);
+		IntDirectedGraph graph = initGraph(2);
 		assertEquals(false, graph.isConnected(0,1));
 	}
 	
 	@Test
 	public void testConnectingTwoVertices(){
-		DirectedGraph graph = initGraph(2);
+		IntDirectedGraph graph = initGraph(2);
 		graph.connect(0,1);
 		assertEquals(true, graph.isConnected(0,1));
 		assertEquals(false, graph.isConnected(1,0));
@@ -54,7 +54,7 @@ public abstract class DirectedGraphTest {
 	
 	@Test
 	public void testGetConnectedVertexList(){
-		DirectedGraph graph = initGraph(4);
+		IntDirectedGraph graph = initGraph(4);
 		graph.connect(0,1);
 		graph.connect(0,2);
 		graph.connect(0,3);
@@ -66,13 +66,13 @@ public abstract class DirectedGraphTest {
 	
 	@Test
 	public void testGetDistanceBetweenUnconnectedComponents(){
-		DirectedGraph graph = initGraph(2);
+		IntDirectedGraph graph = initGraph(2);
 		assertEquals(null, graph.getDistance(0,1));
 	}
 	
 	@Test
 	public void testGetDistanceBetweenComponents(){
-		DirectedGraph graph = initGraph(2);
+		IntDirectedGraph graph = initGraph(2);
 		graph.connect(0,1, 5);
 		assertEquals(new Integer(5), graph.getDistance(0,1));
 	}
@@ -85,5 +85,5 @@ public abstract class DirectedGraphTest {
 		return list;
 	}
 	
-	protected abstract DirectedGraph initGraph(int size);
+	protected abstract IntDirectedGraph initGraph(int size);
 }

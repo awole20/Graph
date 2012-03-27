@@ -10,7 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.graph.AdjacencyListUndirectedGraph;
-import com.graph.UndirectedGraph;
+import com.graph.IntUndirectedGraph;
 
 public class TestBfs {
 
@@ -18,7 +18,7 @@ public class TestBfs {
 	
 	@Before
 	public void setUp() {
-		UndirectedGraph undirectedGraph = new AdjacencyListUndirectedGraph(10);
+		IntUndirectedGraph undirectedGraph = new AdjacencyListUndirectedGraph(10);
 		undirectedGraph.connect(0, 1, 1);
 		undirectedGraph.connect(0, 2, 2);
 		undirectedGraph.connect(0, 3, 3);
